@@ -11,9 +11,9 @@ namespace FruitStore.Repositories
 
         public FruteriashopContext Context { get; }
 
-        public virtual IEnumerable<T> GetAll()
-        {
-            return 
-        }
+        //public virtual IEnumerable<T> GetAll()
+        //{
+        //    return 
+        //}
     }
 }
