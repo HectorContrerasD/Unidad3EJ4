@@ -32,10 +32,11 @@ namespace FruitStore.Repositories
         public virtual void Delete(object Id) 
         { 
             var entity = Context.Find<T>(Id);
-            if (entity != null) 
+            if (entity != null)
             {
                 Delete(entity);
             }
+            
         }
     }
 }

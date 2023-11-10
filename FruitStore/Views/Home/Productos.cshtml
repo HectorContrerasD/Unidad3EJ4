@@ -1,134 +1,24 @@
-﻿@{
+﻿@model FruitStore.Models.ViewModels.ProductosViewModel
+@{
     Layout = "_Layout";
 }
 
-<h1 id="nombreCategoria">Frutas</h1>
+<h1 id="nombreCategoria">@Model.Categoria</h1>
 
 
 <div class="productos">
+    @foreach (var p in Model.Productos)
+    {
+        
+    <a href="~/Home/Ver/@p.Nombre.Replace(" ", "-")">
+        <div>
+            <img src="~/img_frutas/@(p.Id).jpg">
+        </div>
+        <h2>@p.Nombre</h2>
+        <h3>@p.Precio.ToString("c")</h3>
+    </a>
+    } 
     
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-        <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>        <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>        <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>        <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>        <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
-    <a href="~/Home/Ver">
-        <div>
-            <img src="/img_frutas/8.jpg">
-        </div>
-        <h2>Uva roja</h2>
-        <h3>$87.00</h3>
-    </a>
 </div>
 
 

@@ -1,4 +1,4 @@
-﻿
+﻿@inject FruitStore.Repositories.Repository<FruitStore.Models.Entities.Categorias> repositorio
 <html>
 <head>
     <title>FruitStore - La mejor fruteria de la Web</title>
@@ -8,12 +8,11 @@
     <header></header>
     <nav>
         <a href="~/">Principal</a>
-
-        <a href="~/Home/Productos">Frutas</a>
-        <a href="~/Home/Productos">Frutas</a>
-        <a href="~/Home/Productos">Frutas</a>
-        <a href="~/Home/Productos">Frutas</a>
-        <a href="~/Home/Productos">Frutas</a>
+        @foreach (var c in repositorio.GetAll().OrderBy(x=>x.Nombre).Select(x=>x.Nombre))
+        {    
+        <a href="~/Home/Productos/@c">@c</a>
+        
+        }
     </nav>
     <main>
         @RenderBody()

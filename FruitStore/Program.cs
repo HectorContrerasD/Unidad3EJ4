@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<Repository<Categorias>>();
-builder.Services.AddTransient<Repository<Productos>>();
+builder.Services.AddTransient<ProductosRepository>();
 //CLase que es utilizada por muchas clases (servicio)
 builder.Services.AddMvc();
 builder.Services.AddDbContext<FruteriashopContext>(
