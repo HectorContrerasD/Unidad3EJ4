@@ -12,7 +12,10 @@ builder.Services.AddMvc();
 builder.Services.AddDbContext<FruteriashopContext>(
     x=> x.UseMySql("user=root;password=root;server=localhost;database=fruteriashop", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql")));
 var app = builder.Build();
-
+app.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
 app.UseFileServer();
 app.MapDefaultControllerRoute();
 

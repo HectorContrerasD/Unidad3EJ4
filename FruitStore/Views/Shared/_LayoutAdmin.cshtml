@@ -12,10 +12,10 @@
         <a href="~/Administrador">Principal</a>
         <a href="~/Administrador/Categorias">Administrar Categorias</a>
         <a href="~/Administrador/Productos">Administrar Productos</a>
-        <a href="~/Home/CerrarSesion">Cerrar sesión</a>
+       
     </nav>
     <main>
-        <p>Bienvenido @User.Identity?.Name (@User.Claims.FirstOrDefault(x=> x.Type=="Carrera")?.Value)</p>
+       
         @RenderBody()
     </main>
 </body>

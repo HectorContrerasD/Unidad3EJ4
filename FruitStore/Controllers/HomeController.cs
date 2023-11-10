@@ -24,7 +24,7 @@ namespace FruitStore.Controllers
             ProductosViewModel productosViewModel = new ProductosViewModel()
             {
                 Categoria = Id,
-                Productos = Repository.GetAll().Where(x=>x.IdCategoriaNavigation?.Nombre == Id).OrderBy(x=>x.Nombre)
+                Productos = Repository.GetProductosByCategorias(Id).OrderBy(x=>x.Nombre)
                 .Select(x=>new ProductosModel
                 {
                     Nombre= x.Nombre??"",
@@ -35,9 +35,28 @@ namespace FruitStore.Controllers
             return View(productosViewModel);
         }
 
-        public IActionResult Ver()
+        public IActionResult Ver(string Id)
         {
-            return View();
+           Id= Id.Replace("-"," ");
+            var productos = Repository.GetByNombre(Id);
+            if (productos == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                VerProductoViewModel vm = new()
+                {
+                    Id = productos.Id,
+                    Categoria = productos.IdCategoriaNavigation?.Nombre ?? "",
+                    Descripcion = productos.Descripcion ?? "",
+                    Nombre = productos.Nombre ?? "",
+                    Precio = productos.Precio ?? 0m,
+                    UnidadMedida = productos.UnidadMedida ?? ""
+                };
+                return View(vm);
+            }
+            
         }
 
     }
