@@ -47,5 +47,23 @@ namespace FruitStore.Areas.Administrador.Controllers
             }
             return View(categorias);
         }
+        public IActionResult Editar(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Editar(Categorias categorias)
+        {
+            return View(); 
+        }
+        public IActionResult Eliminar(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Eliminar(Categorias categorias)
+        {
+            return View();
+        }
     }
 }
