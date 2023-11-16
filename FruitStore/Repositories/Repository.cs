@@ -1,4 +1,5 @@
 ﻿using FruitStore.Models.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace FruitStore.Repositories
 {
@@ -29,9 +30,14 @@ namespace FruitStore.Repositories
             Context.Update(entity);
             Context.SaveChanges();
         }
+        public virtual void Delete(T entity)
+        {
+            Context.Remove(entity);
+            Context.SaveChanges();
+        }
         public virtual void Delete(object Id) 
         { 
-            var entity = Context.Find<T>(Id);
+            var entity = Get(Id);
             if (entity != null)
             {
                 Delete(entity);
