@@ -49,11 +49,38 @@ namespace FruitStore.Areas.Administrador.Controllers
         }
         public IActionResult Agregar()
         {
-            return View();
+            AdminAgregarProductosViewModel vm = new();
+            vm.Categorias = categoriasRepository.GetAll().OrderBy(x => x.Nombre)
+                .Select(x=> new CategoriaModel
+                {
+                    Id = x.Id,
+                    Nombre = x.Nombre??""
+                });
+            return View(vm);
         }
         [HttpPost]
         public IActionResult Agregar(AdminAgregarProductosViewModel vm)
         {
+            if (vm.Archivo != null)
+            {
+                if(vm.Archivo.ContentType!= "image/jpeg")
+                {
+                    ModelState.AddModelError("", "Solo se permiten imagenes jpeg");
+                }
+                if (vm.Archivo.Length >500*1024)
+                {
+                    ModelState.AddModelError("", "Solo se permiten archivos no mayores a 500Kb");
+                }
+                if (ModelState.IsValid)
+                {
+                    productsRepository.Insert(vm.Producto);
+                    if (vm.Archivo == null)
+                    {
+
+                    }
+
+                }
+            }
             return View();
         }
     }
