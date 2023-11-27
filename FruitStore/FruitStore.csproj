@@ -16,4 +16,12 @@
     <PackageReference Include="pomelo.entityframeworkcore.mysql" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\juanh\source\repos\FruitStore7\FruitStore7\FruitStore\Models\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\juanh\source\repos\FruitStore7\FruitStore7\FruitStore\Models\.editorconfig" />
+  </ItemGroup>
+
 </Project>

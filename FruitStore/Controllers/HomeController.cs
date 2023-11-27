@@ -24,12 +24,13 @@ namespace FruitStore.Controllers
             ProductosViewModel productosViewModel = new ProductosViewModel()
             {
                 Categoria = Id,
-                Productos = Repository.GetProductosByCategorias(Id).OrderBy(x=>x.Nombre)
-                .Select(x=>new ProductosModel
+                Productos = Repository.GetProductosByCategorias(Id).OrderBy(x => x.Nombre)
+                .Select(x => new ProductosModel
                 {
-                    Nombre= x.Nombre??"",
+                    Nombre = x.Nombre ?? "",
                     Id = x.Id,
-                    Precio = x.Precio ?? 00
+                    Precio = x.Precio ?? 00,
+                    FechaModificacion = new FileInfo($"wwwroot/img_frutas/{x.Id}.jpg").LastWriteTime.ToString("yyyyMMddhhmm")
                 })
             };
             return View(productosViewModel);

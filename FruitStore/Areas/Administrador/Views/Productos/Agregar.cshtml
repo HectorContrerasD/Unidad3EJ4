@@ -1,22 +1,22 @@
-﻿
-@model FruitStore.Areas.Administrador.Models.AdminAgregarProductosViewModel
+﻿@model FruitStore.Areas.Administrador.Models.AdminAgregarProductosViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "Agregar";
+
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<form method="post" action="~/Administrador/Productos/Agregar" enctype="multipart/form-data">
+
+<form action="~/Administrador/Productos/Agregar" method="post" enctype="multipart/form-data">
+    <!--Sube el archivo en partes el enctype, para poder recibir el archivo y  no solamente el nombre-->
     <div>
         <h1>Agregar Producto</h1>
 
         <label>Nombre:</label>
-        <input asp-for="Producto.Nombre" type="text" id="txtNombre" />
+        <input type="text" id="txtNombre" asp-for="Producto.Nombre" />
 
 
         <label>Categoría:</label>
-        <select id="cmbCategoria" asp-for="Producto.IdCategoria" asp-items="@(new SelectList(Model.Categorias, "Id", "Nombre"))">
+        <select id="cmbCategoria" asp-for="Producto.IdCategoria" asp-items="@(new SelectList(Model.Categorias,"Id","Nombre"))">
             <option>-- Seleccionar categoria --</option>
-
         </select>
 
         <label>Unidad de Medida:</label>
@@ -26,17 +26,18 @@
         <input type="number" id="txtPrecio" asp-for="Producto.Precio" />
 
         <label>Descripción</label>
-<textarea rows="2" cols="20" asp-for="Producto.Descripcion"></textarea>
+        <textarea rows="2" cols="20" asp-for="Producto.Descripcion"></textarea>
 
         <label>Imagen:</label>
         <input type="file" id="fileUpload1" accept="image/jpg" asp-for="Archivo" />
 
         <img id="imagePreview" src="~/img_frutas/no-disponible.png" />
 
+
         <div class="botones">
             <p id="error">@Html.ValidationSummary(true)</p>
             <input type="submit" value="Agregar" id="btnAgregar" />
-            <a href="productos.html">
+            <a href="~/Admin/Productos">
                 <input type="button" value="Cancelar" id="btnCancelar" />
             </a>
         </div>
@@ -58,3 +59,4 @@
         mostrarImagen(this);
     });
 </script>
+
