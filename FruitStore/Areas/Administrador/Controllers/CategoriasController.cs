@@ -1,12 +1,16 @@
 ﻿using FruitStore.Areas.Administrador.Models;
 using FruitStore.Models.Entities;
 using FruitStore.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 using System.Collections.Immutable;
 
+
 namespace FruitStore.Areas.Administrador.Controllers
 {
+    [Authorize(Roles = "Supervisor")]// se pone encima de lo que quieras bloquear
+
     [Area("Administrador")]
     public class CategoriasController : Controller
     {

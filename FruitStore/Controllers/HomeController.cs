@@ -59,6 +59,16 @@ namespace FruitStore.Controllers
             }
             
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(LoginViewModel vm)
+        {
+
+            return View();
+        }
 
     }
 }

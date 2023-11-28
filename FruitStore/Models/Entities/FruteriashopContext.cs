@@ -19,8 +19,9 @@ public partial class FruteriashopContext : DbContext
 
     public virtual DbSet<Productos> Productos { get; set; }
 
- 
+    public virtual DbSet<Usuarios> Usuarios { get; set; }
 
+   
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
@@ -62,6 +63,20 @@ public partial class FruteriashopContext : DbContext
             entity.HasOne(d => d.IdCategoriaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdCategoria)
                 .HasConstraintName("fk_categorias");
+        });
+
+        modelBuilder.Entity<Usuarios>(entity =>
+        {
+            entity.HasKey(e => e.IdUsuarios).HasName("PRIMARY");
+
+            entity.ToTable("usuarios");
+
+            entity.Property(e => e.IdUsuarios).HasColumnName("idUsuarios");
+            entity.Property(e => e.Contrasena)
+                .HasMaxLength(128)
+                .IsFixedLength();
+            entity.Property(e => e.Correoelectronico).HasMaxLength(255);
+            entity.Property(e => e.Nombre).HasMaxLength(188);
         });
 
         OnModelCreatingPartial(modelBuilder);

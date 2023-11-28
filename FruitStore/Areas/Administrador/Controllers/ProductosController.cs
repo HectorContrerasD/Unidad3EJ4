@@ -2,12 +2,14 @@
 using FruitStore.Models.Entities;
 using FruitStore.Repositories;
 using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 using System.Security.Permissions;
 
 namespace FruitStore.Areas.Administrador.Controllers
 {
+    [Authorize(Roles = "Administrador, Supervisor")]
     [Area("Administrador")]
     public class ProductosController : Controller
     {
